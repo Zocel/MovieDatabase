@@ -2,7 +2,7 @@
 Ce projet consiste en la création d'une base de données **SQL** sur les films.
 
 ## Auteurs
-Bordeaux Ynov Campus Informatique
+**Bordeaux Ynov Campus Informatique**
 *   Thibault **FEUGÈRE** - B1 A - [flamingfurry](https://github.com/flamingfurry)
 *   Rémi **FEYDIT** - B1 A - [RemiFeydit](https://github.com/RemiFeydit)
 *   Yann **LE COZ** - B1 B - [Zocel](https://github.com/Zocel)
