@@ -10,84 +10,93 @@ GO
 /* Création de la TABLE 'films' */
 CREATE TABLE films
 (
-  IdFilm INT PRIMARY KEY (IdFilm),
-	IdPersonnage INT NOT NULL FOREIGN KEY (IdPersonnage) REFERENCES personnages (IdPersonnage),
-  IdArtiste INT NOT NULL FOREIGN KEY (IdArtiste) REFERENCES artistes (IdArtiste),
-  IdDistinction INT NOT NULL FOREIGN KEY (IdDistinction) REFERENCES distinction (IdDistinction),
-  IdProduction INT NOT NULL FOREIGN KEY (IdProduction) REFERENCES societeproduction (IdProduction),
-  IdBoxoffice INT NOT NULL FOREIGN KEY (IdBoxoffice) REFERENCES boxoffice (IdBoxoffice),
-  IdDatesortie INT NOT NULL FOREIGN KEY (IdDatesortie) REFERENCES datesortie (IdDatesortie),
-  Titre_film VARCHAR(25) NOT NULL,
-  Genre VARCHAR(20) NOT NULL,
-  Budget INT NOT NULL,
-  Duree INT NOT NULL,
-  Pays_origine VARCHAR(15) NOT NULL
+  idFilm INT IDENTITY(1,1) PRIMARY KEY,
+	idPersonnage INT CONSTRAINT films_idPersonnage_FK FOREIGN KEY (idPersonnage) REFERENCES personnages(idPersonnage),
+  idArtiste INT CONSTRAINT films_idArtiste_FK FOREIGN KEY (idArtiste) REFERENCES artistes(idArtiste),
+  idDistinction INT CONSTRAINT films_idDistinction_FK FOREIGN KEY (idDistinction) REFERENCES distinction(idDistinction),
+  idProduction INT CONSTRAINT films_idProduction_FK FOREIGN KEY (idProduction) REFERENCES societeproduction(idProduction),
+	idCritique INT CONSTRAINT films_idCritique_FK FOREIGN KEY (idCritique) REFERENCES critique(idCritique),
+	idBoxoffice INT CONSTRAINT films_idBoxoffice_FK FOREIGN KEY (idBoxoffice) REFERENCES boxoffice(idBoxoffice),
+  idDatesortie INT CONSTRAINT films_idDatesortie_FK FOREIGN KEY (idDatesortie) REFERENCES datesortie(idDatesortie),
+  titre_film VARCHAR(25) NOT NULL,
+  genre VARCHAR(20) NOT NULL,
+  budget INT NOT NULL,
+  duree INT NOT NULL,
+  pays_origine VARCHAR(15) NOT NULL
 );
 GO
 /* Création de la TABLE 'personnages' */
 CREATE TABLE personnages
 (
-	IdPersonnage INT PRIMARY KEY (IdPersonnage),
-	IdArtiste INT NOT NULL FOREIGN KEY (IdArtiste) REFERENCES artistes (IdArtiste),
-	IdFilm INT NOT NULL FOREIGN KEY (IdFilm) REFERENCES films (IdFilm),
-	Nom_personnage VARCHAR(25) NOT NULL,
-	Prenom_personnage VARCHAR(20) NOT NULL,
-	Naissance_personnage DATE NOT NULL,
-	Activite_personnage VARCHAR(15) NOT NULL,
-	Taille_personnage DECIMAL(3),
-	Nemesis_personnage VARCHAR(15),
-	Createur_personnage VARCHAR(50)
+	idPersonnage INT IDENTITY(1,1) PRIMARY KEY,
+	idArtiste INT CONSTRAINT personnages_idArtiste_FK  FOREIGN KEY (idArtiste) REFERENCES artistes(idArtiste),
+	idFilm INT CONSTRAINT personnages_idFilm_FK FOREIGN KEY (idFilm) REFERENCES films(idFilm),
+	nom_personnage VARCHAR(25) NOT NULL,
+	prenom_personnage VARCHAR(20) NOT NULL,
+	naissance_personnage DATE NULL,
+	activite_personnage VARCHAR(15) NOT NULL,
+	taille_personnage DECIMAL(1,2),
+	nemesis_personnage VARCHAR(15),
+	createur_personnage VARCHAR(50)
 );
 GO
 /* Création de la TABLE 'artistes' */
 CREATE TABLE artistes
 (
-	IdArtiste INT PRIMARY KEY (IdArtiste),
-	IdPersonnage INT NOT NULL FOREIGN KEY (IdPersonnage) REFERENCES personnages (IdPersonnage),
-	IdDistinction INT NOT NULL FOREIGN KEY (IdDistinction) REFERENCES distinction (IdDistinction),
-	Nom_artiste VARCHAR(25) NOT NULL,
-	Prenom_artiste VARCHAR(20) NOT NULL,
-	Naissance_artiste DATE NOT NULL,
-	Sexe VARCHAR(1),
-	Profession VARCHAR(15)
+	idArtiste INT IDENTITY(1,1) PRIMARY KEY,
+	idPersonnage INT CONSTRAINT  artistes_idPersonnage_FK FOREIGN KEY (idPersonnage) REFERENCES personnages(idPersonnage),
+	idDistinction INT CONSTRAINT artistes_idDistinction_FK FOREIGN KEY (idDistinction) REFERENCES distinction(idDistinction),
+	nom_artiste VARCHAR(25) NOT NULL,
+	prenom_artiste VARCHAR(20) NOT NULL,
+	naissance_artiste DATE NOT NULL,
+	sexe VARCHAR(1),
+	profession VARCHAR(15)
 );
 GO
 /* Création de la TABLE 'distinctions' */
 CREATE TABLE distinctions
 (
-	IdDistinction INT PRIMARY KEY (IdDistinction),
-	Titre_distinction VARCHAR(25) NOT NULL,
-	Type_distinction VARCHAR(10) NOT NULL,
-	Date_distinction DATE NOT NULL,
-	Lieu_distinction VARCHAR(10)
+	idDistinction INT IDENTITY(1,1) PRIMARY KEY,
+	titre_distinction VARCHAR(25) NOT NULL,
+	type_distinction VARCHAR(10) NOT NULL,
+	date_distinction DATE NOT NULL,
+	lieu_distinction VARCHAR(10)
 );
 GO
 /* Création de la TABLE 'societeproduction' */
 CREATE TABLE societeproduction
 (
-	IdProduction INT PRIMARY KEY (IdProduction),
-	Nom_societe VARCHAR(20) NOT NULL,
-	Creation DATE NOT NULL,
-	Fondateur VARCHAR(50) NOT NULL,
-	Siege_social VARCHAR(10) NOT NULL,
-	Directeur VARCHAR(50) NOT NULL
+	idProduction INT IDENTITY(1,1) PRIMARY KEY,
+	nom_societe VARCHAR(20) NOT NULL,
+	creation DATE NOT NULL,
+	fondateur VARCHAR(50) NOT NULL,
+	siege_social VARCHAR(10) NOT NULL,
+	directeur VARCHAR(50) NOT NULL
+);
+GO
+/* Création de la TABLE 'critique' */
+CREATE TABLE critique
+(
+	idCritique INT IDENTITY(1,1) PRIMARY KEY,
+	nom_critique VARCHAR(20),
+	note_critique DECIMAL(2,1)
 );
 GO
 /* Création de la TABLE 'boxoffice' */
 CREATE TABLE boxoffice
 (
-	IdBoxoffice INT PRIMARY KEY (IdBoxoffice),
-	Pay_boxoffice VARCHAR(10) NOT NULL,
-	Recette_boxoffice INT NOT NULL,
-	Date_arret_boxoffice DATE,
-	Nombre_semaines INT
+	idBoxoffice INT IDENTITY(1,1) PRIMARY KEY,
+	pays_boxoffice VARCHAR(10) NOT NULL,
+	recette_boxoffice INT NOT NULL,
+	date_arret_boxoffice DATE,
+	nombre_semaines INT
 );
 GO
 /* Création de la TABLE 'datesortie' */
 CREATE TABLE datesortie
 (
-	IdDatesortie INT PRIMARY KEY (IdDatesortie),
-	Pays_datesortie VARCHAR(10) NOT NULL,
-	Date_sortie DATE NOT NULL
+	idDatesortie INT IDENTITY(1,1) PRIMARY KEY,
+	pays_datesortie VARCHAR(10) NOT NULL,
+	date_sortie DATE NOT NULL
 );
 GO
