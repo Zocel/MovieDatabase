@@ -9,10 +9,10 @@ Ce projet *Ydays* consiste en la création d'une base de données en **SQL** sur
 
 ## Sommaire
 *   [Qu'est-ce que le SQL ?](#quest-ce-que-le-sql-)
-*   [Diagramme UML](#diagramme-uml)
+*   [Modèle Conceptuel de Données](#modèle-conceptuel-de-données)
 
 ## Qu'est-ce que le SQL ?
 Le **SQL** (Structured Query Language) est un langage informatique normalisé servant à exploiter des bases de données. La partie langage de manipulation des données de SQL permet de rechercher, d'ajouter, de modifier ou de supprimer des données dans les bases de données.
 
-## Diagramme UML
-![](https://raw.githubusercontent.com/Zocel/MovieDatabase/master/Diagramme%20UML%20MovieDatabase.png)
+## Modèle Conceptuel de Données
+![](https://raw.githubusercontent.com/Zocel/MovieDatabase/master/Sch%C3%A9ma%20MCD%20MovieDatabase.png)
