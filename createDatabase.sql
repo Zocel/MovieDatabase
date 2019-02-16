@@ -1,56 +1,23 @@
-/* Création de la DATABASE 'FILMS' avec vérification qu'elle existe déjà */
-IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'FILMS')
-	DROP DATABASE [FILMS]
+﻿/* Création de la DATABASE 'MOVIES' avec vérification qu'elle existe déjà */
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'MOVIES')
+DROP DATABASE [MOVIES]
 GO
-CREATE DATABASE [FILMS]
+CREATE DATABASE [MOVIES]
 GO
-use [FILMS]
+use [MOVIES]
 GO
 
-/* Création de la TABLE 'films' */
-CREATE TABLE films
-(
-  idFilm INT IDENTITY(1,1) PRIMARY KEY,
-	idPersonnage INT CONSTRAINT films_idPersonnage_FK FOREIGN KEY (idPersonnage) REFERENCES personnages(idPersonnage),
-  idArtiste INT CONSTRAINT films_idArtiste_FK FOREIGN KEY (idArtiste) REFERENCES artistes(idArtiste),
-  idDistinction INT CONSTRAINT films_idDistinction_FK FOREIGN KEY (idDistinction) REFERENCES distinction(idDistinction),
-  idProduction INT CONSTRAINT films_idProduction_FK FOREIGN KEY (idProduction) REFERENCES societeproduction(idProduction),
-	idCritique INT CONSTRAINT films_idCritique_FK FOREIGN KEY (idCritique) REFERENCES critique(idCritique),
-	idBoxoffice INT CONSTRAINT films_idBoxoffice_FK FOREIGN KEY (idBoxoffice) REFERENCES boxoffice(idBoxoffice),
-  idDatesortie INT CONSTRAINT films_idDatesortie_FK FOREIGN KEY (idDatesortie) REFERENCES datesortie(idDatesortie),
-  titre_film VARCHAR(25) NOT NULL,
-  genre VARCHAR(20) NOT NULL,
-  budget INT NOT NULL,
-  duree INT NOT NULL,
-  pays_origine VARCHAR(15) NOT NULL
-);
-GO
 /* Création de la TABLE 'personnages' */
 CREATE TABLE personnages
 (
-	idPersonnage INT IDENTITY(1,1) PRIMARY KEY,
-	idArtiste INT CONSTRAINT personnages_idArtiste_FK  FOREIGN KEY (idArtiste) REFERENCES artistes(idArtiste),
-	idFilm INT CONSTRAINT personnages_idFilm_FK FOREIGN KEY (idFilm) REFERENCES films(idFilm),
+	idPersonnage INT IDENTITY(1,1) CONSTRAINT personnages_idPersonnage_PK PRIMARY KEY,
 	nom_personnage VARCHAR(25) NOT NULL,
 	prenom_personnage VARCHAR(20) NOT NULL,
 	naissance_personnage DATE NULL,
 	activite_personnage VARCHAR(15) NOT NULL,
-	taille_personnage DECIMAL(1,2),
+	taille_personnage DECIMAL(3,2),
 	nemesis_personnage VARCHAR(15),
 	createur_personnage VARCHAR(50)
-);
-GO
-/* Création de la TABLE 'artistes' */
-CREATE TABLE artistes
-(
-	idArtiste INT IDENTITY(1,1) PRIMARY KEY,
-	idPersonnage INT CONSTRAINT  artistes_idPersonnage_FK FOREIGN KEY (idPersonnage) REFERENCES personnages(idPersonnage),
-	idDistinction INT CONSTRAINT artistes_idDistinction_FK FOREIGN KEY (idDistinction) REFERENCES distinction(idDistinction),
-	nom_artiste VARCHAR(25) NOT NULL,
-	prenom_artiste VARCHAR(20) NOT NULL,
-	naissance_artiste DATE NOT NULL,
-	sexe VARCHAR(1),
-	profession VARCHAR(15)
 );
 GO
 /* Création de la TABLE 'distinctions' */
@@ -61,6 +28,19 @@ CREATE TABLE distinctions
 	type_distinction VARCHAR(10) NOT NULL,
 	date_distinction DATE NOT NULL,
 	lieu_distinction VARCHAR(10)
+);
+GO
+/* Création de la TABLE 'artistes' */
+CREATE TABLE artistes
+(
+	idArtiste INT IDENTITY(1,1) PRIMARY KEY,
+	idPersonnage INT CONSTRAINT  artiste_idPersonnage_FK REFERENCES personnages,
+	idDistinction INT CONSTRAINT artiste_idDistinction_FK REFERENCES distinctions,
+	nom_artiste VARCHAR(25) NOT NULL,
+	prenom_artiste VARCHAR(20) NOT NULL,
+	naissance_artiste DATE NOT NULL,
+	sexe VARCHAR(1),
+	profession VARCHAR(15)
 );
 GO
 /* Création de la TABLE 'societeproduction' */
@@ -98,5 +78,23 @@ CREATE TABLE datesortie
 	idDatesortie INT IDENTITY(1,1) PRIMARY KEY,
 	pays_datesortie VARCHAR(10) NOT NULL,
 	date_sortie DATE NOT NULL
+);
+GO
+/* Création de la TABLE 'films' */
+CREATE TABLE films
+(
+	idFilm INT IDENTITY(1,1) CONSTRAINT films_idFilm_PK PRIMARY KEY,
+	titre_film VARCHAR(25) NOT NULL,
+	genre VARCHAR(20) NOT NULL,
+	budget INT NOT NULL,
+	duree INT NOT NULL,
+	pays_origine VARCHAR(15) NOT NULL,
+	idPersonnage INT CONSTRAINT films_idPersonnage_FK REFERENCES personnages,
+	idArtiste INT CONSTRAINT films_idArtiste_FK REFERENCES artistes,
+	idDistinction INT CONSTRAINT films_idDistinction_FK REFERENCES distinctions,
+	idProduction INT CONSTRAINT films_idProduction_FK REFERENCES societeproduction,
+	idCritique INT CONSTRAINT films_idCritique_FK REFERENCES critique,
+	idBoxoffice INT CONSTRAINT films_idBoxoffice_FK REFERENCES boxoffice,
+	idDatesortie INT CONSTRAINT films_idDatesortie_FK REFERENCES datesortie
 );
 GO
