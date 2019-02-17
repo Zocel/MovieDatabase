@@ -11,84 +11,85 @@ GO
 CREATE TABLE personnages
 (
 	idPersonnage INT IDENTITY(1,1) CONSTRAINT personnages_idPersonnage_PK PRIMARY KEY,
-	nom_personnage VARCHAR(25) NOT NULL,
-	prenom_personnage VARCHAR(20) NOT NULL,
-	naissance_personnage DATE NULL,
-	activite_personnage VARCHAR(15) NOT NULL,
-	taille_personnage DECIMAL(3,2),
-	nemesis_personnage VARCHAR(15),
-	createur_personnage VARCHAR(50)
+	nomPersonnage VARCHAR(25) CONSTRAINT personnages_nomPersonnage_NN NOT NULL,
+	prenomPersonnage VARCHAR(20) CONSTRAINT personnages_prenomPersonnage_NN NOT NULL,
+	aliasPersonnage VARCHAR(15),
+	naissancePersonnage DATE,
+	activitePersonnage VARCHAR(15) CONSTRAINT personnages_activitePersonnage_NN NOT NULL,
+	taillePersonnage DECIMAL(3,2),
+	nemesisPersonnage VARCHAR(15),
+	createurPersonnage VARCHAR(50)
 );
 GO
 /* Création de la TABLE 'distinctions' */
 CREATE TABLE distinctions
 (
 	idDistinction INT IDENTITY(1,1) PRIMARY KEY,
-	titre_distinction VARCHAR(25) NOT NULL,
-	type_distinction VARCHAR(10) NOT NULL,
-	date_distinction DATE NOT NULL,
-	lieu_distinction VARCHAR(10)
+	titreDistinction VARCHAR(25) CONSTRAINT distinctions_titreDistinction_NN NOT NULL,
+	typeDistinction VARCHAR(10) CONSTRAINT distinctions_typeDistinction_CK CHECK(typeDistinction IN ('Récompense','Nominations')),
+	dateDistinction DATE CONSTRAINT distinctions_dateDistinction_NN NOT NULL,
+	lieuDistinction VARCHAR(10)
 );
 GO
 /* Création de la TABLE 'artistes' */
 CREATE TABLE artistes
 (
 	idArtiste INT IDENTITY(1,1) PRIMARY KEY,
-	idPersonnage INT CONSTRAINT  artiste_idPersonnage_FK REFERENCES personnages,
-	idDistinction INT CONSTRAINT artiste_idDistinction_FK REFERENCES distinctions,
-	nom_artiste VARCHAR(25) NOT NULL,
-	prenom_artiste VARCHAR(20) NOT NULL,
-	naissance_artiste DATE NOT NULL,
-	sexe VARCHAR(1),
-	profession VARCHAR(15)
+	idPersonnage INT CONSTRAINT  artistes_idPersonnage_FK REFERENCES personnages,
+	idDistinction INT CONSTRAINT artistes_idDistinction_FK REFERENCES distinctions,
+	nomArtiste VARCHAR(25) CONSTRAINT artistes_nomArtiste_NN NOT NULL,
+	prenomArtiste VARCHAR(20) CONSTRAINT artistes_prenomArtiste_NN NOT NULL,
+	naissanceArtiste DATE CONSTRAINT artistes_naissanceArtiste_NN NOT NULL,
+	sexeArtiste VARCHAR(1),
+	professionArtiste VARCHAR(15)
 );
 GO
 /* Création de la TABLE 'societeproduction' */
 CREATE TABLE societeproduction
 (
 	idProduction INT IDENTITY(1,1) PRIMARY KEY,
-	nom_societe VARCHAR(20) NOT NULL,
-	creation DATE NOT NULL,
-	fondateur VARCHAR(50) NOT NULL,
-	siege_social VARCHAR(10) NOT NULL,
-	directeur VARCHAR(50) NOT NULL
+	nomProduction VARCHAR(20) CONSTRAINT societeproduction_nomProduction_NN NOT NULL,
+	creationProduction DATE CONSTRAINT societeproduction_creationProduction_NN NOT NULL,
+	fondateurProduction VARCHAR(50) CONSTRAINT societeproduction_fondateurProduction_NN NOT NULL,
+	siegesocialProduction VARCHAR(10) CONSTRAINT societeproduction_siegesocialProduction_NN NOT NULL,
+	directeurProduction VARCHAR(50) CONSTRAINT societeproduction_directeurProduction_NN NOT NULL
 );
 GO
 /* Création de la TABLE 'critique' */
 CREATE TABLE critique
 (
 	idCritique INT IDENTITY(1,1) PRIMARY KEY,
-	nom_critique VARCHAR(20),
-	note_critique DECIMAL(2,1)
+	nomCritique VARCHAR(20),
+	noteCritique DECIMAL(2,1)
 );
 GO
 /* Création de la TABLE 'boxoffice' */
 CREATE TABLE boxoffice
 (
 	idBoxoffice INT IDENTITY(1,1) PRIMARY KEY,
-	pays_boxoffice VARCHAR(10) NOT NULL,
-	recette_boxoffice INT NOT NULL,
-	date_arret_boxoffice DATE,
-	nombre_semaines INT
+	paysBoxoffice VARCHAR(10) CONSTRAINT boxoffice_paysBoxoffice_NN NOT NULL,
+	recetteBoxoffice INT CONSTRAINT boxoffice_recetteBoxoffice_NN NOT NULL,
+	datearretBoxoffice DATE,
+	nombresemainesBoxoffice INT
 );
 GO
 /* Création de la TABLE 'datesortie' */
 CREATE TABLE datesortie
 (
 	idDatesortie INT IDENTITY(1,1) PRIMARY KEY,
-	pays_datesortie VARCHAR(10) NOT NULL,
-	date_sortie DATE NOT NULL
+	paysDatesortie VARCHAR(10) CONSTRAINT datesortie_paysDatesortie_NN NOT NULL,
+	dateSortie DATE CONSTRAINT datesortie_dateSortie_NN NOT NULL
 );
 GO
 /* Création de la TABLE 'films' */
 CREATE TABLE films
 (
 	idFilm INT IDENTITY(1,1) CONSTRAINT films_idFilm_PK PRIMARY KEY,
-	titre_film VARCHAR(25) NOT NULL,
-	genre VARCHAR(20) NOT NULL,
-	budget INT NOT NULL,
-	duree INT NOT NULL,
-	pays_origine VARCHAR(15) NOT NULL,
+	titreFilm VARCHAR(25) CONSTRAINT films_titreFilm_NN NOT NULL,
+	genreFilm VARCHAR(20) CONSTRAINT films_genreFilm_NN NOT NULL,
+	budgetFilm INT CONSTRAINT films_budgetFilm_NN NOT NULL,
+	dureeFilm INT CONSTRAINT films_dureeFilm_NN NOT NULL,
+	paysorigineFilm VARCHAR(15) CONSTRAINT films_paysorigineFilm_NN NOT NULL,
 	idPersonnage INT CONSTRAINT films_idPersonnage_FK REFERENCES personnages,
 	idArtiste INT CONSTRAINT films_idArtiste_FK REFERENCES artistes,
 	idDistinction INT CONSTRAINT films_idDistinction_FK REFERENCES distinctions,

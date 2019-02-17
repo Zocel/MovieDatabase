@@ -3,7 +3,7 @@ Ce projet *Ydays* consiste en la création d'une base de données en **SQL** sur
 
 ## Auteurs
 **Bordeaux Ynov Campus Informatique**
-*   **Thibault FEUGÈRE** - B1 A - [flamingfurry](https://github.com/flamingfurry)
+*   **Thibault FEUGÈRE** - B1 A - [ThibaultFeugere](https://github.com/ThibaultFeugere)
 *   **Rémi FEYDIT** - B1 A - [RemiFeydit](https://github.com/RemiFeydit)
 *   **Yann LE COZ** - B1 B - [Zocel](https://github.com/Zocel)
 
