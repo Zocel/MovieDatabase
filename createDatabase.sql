@@ -10,11 +10,11 @@ GO
 /* Création de la TABLE 'personnages' */
 CREATE TABLE personnages
 (
-	idPersonnage INT IDENTITY(1,1) CONSTRAINT personnages_idPersonnage_PK PRIMARY KEY,
+	idPersonnage INT IDENTITY(1,1) PRIMARY KEY,
 	nomPersonnage VARCHAR(25) CONSTRAINT personnages_nomPersonnage_NN NOT NULL,
 	prenomPersonnage VARCHAR(20) CONSTRAINT personnages_prenomPersonnage_NN NOT NULL,
 	aliasPersonnage VARCHAR(15),
-	naissancePersonnage DATE,
+	lieuPersonnage VARCHAR(20),
 	activitePersonnage VARCHAR(15) CONSTRAINT personnages_activitePersonnage_NN NOT NULL,
 	taillePersonnage DECIMAL(3,2),
 	nemesisPersonnage VARCHAR(15),
@@ -40,8 +40,10 @@ CREATE TABLE artistes
 	nomArtiste VARCHAR(25) CONSTRAINT artistes_nomArtiste_NN NOT NULL,
 	prenomArtiste VARCHAR(20) CONSTRAINT artistes_prenomArtiste_NN NOT NULL,
 	naissanceArtiste DATE CONSTRAINT artistes_naissanceArtiste_NN NOT NULL,
+	mortArtiste DATE,
 	sexeArtiste VARCHAR(1),
-	professionArtiste VARCHAR(15)
+	nationaliteArtiste(15),
+	professionArtiste VARCHAR(30)
 );
 GO
 /* Création de la TABLE 'societeproduction' */
@@ -84,7 +86,7 @@ GO
 /* Création de la TABLE 'films' */
 CREATE TABLE films
 (
-	idFilm INT IDENTITY(1,1) CONSTRAINT films_idFilm_PK PRIMARY KEY,
+	idFilm INT IDENTITY(1,1) PRIMARY KEY,
 	titreFilm VARCHAR(25) CONSTRAINT films_titreFilm_NN NOT NULL,
 	genreFilm VARCHAR(20) CONSTRAINT films_genreFilm_NN NOT NULL,
 	budgetFilm INT CONSTRAINT films_budgetFilm_NN NOT NULL,
