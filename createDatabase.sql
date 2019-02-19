@@ -41,7 +41,7 @@ CREATE TABLE artistes
 	prenomArtiste VARCHAR(20) CONSTRAINT artistes_prenomArtiste_NN NOT NULL,
 	naissanceArtiste DATE CONSTRAINT artistes_naissanceArtiste_NN NOT NULL,
 	mortArtiste DATE,
-	sexeArtiste VARCHAR(1),
+	sexeArtiste VARCHAR(1) CONSTRAINT artistes_sexeArtiste_CK CHECK (sexeArtiste IN ('M','F')),
 	nationaliteArtiste(15),
 	professionArtiste VARCHAR(30)
 );
