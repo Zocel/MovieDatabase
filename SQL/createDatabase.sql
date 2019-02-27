@@ -28,9 +28,9 @@ GO
 CREATE TABLE distinctions
 (
 	idDistinction INT IDENTITY(1,1) PRIMARY KEY,
-	titreDistinction VARCHAR(25) CONSTRAINT distinctions_titreDistinction_NN NOT NULL,
+	titreDistinction VARCHAR(25),
 	typeDistinction VARCHAR(10) CONSTRAINT distinctions_typeDistinction_CK CHECK(typeDistinction IN ('Récompense','Nominations')),
-	dateDistinction DATE CONSTRAINT distinctions_dateDistinction_NN NOT NULL,
+	dateDistinction DATE,
 	lieuDistinction VARCHAR(10)
 );
 GO
@@ -62,7 +62,7 @@ CREATE TABLE societeproduction
 	creationProduction DATE CONSTRAINT societeproduction_creationProduction_NN NOT NULL,
 	fondateurProduction VARCHAR(50) CONSTRAINT societeproduction_fondateurProduction_NN NOT NULL,
 	siegesocialProduction VARCHAR(10) CONSTRAINT societeproduction_siegesocialProduction_NN NOT NULL,
-	directeurProduction VARCHAR(50) CONSTRAINT societeproduction_directeurProduction_NN NOT NULL
+	directeurProduction VARCHAR(50)
 );
 GO
 
@@ -72,7 +72,8 @@ CREATE TABLE critique
 (
 	idCritique INT IDENTITY(1,1) PRIMARY KEY,
 	nomCritique VARCHAR(20),
-	noteCritique DECIMAL(2,1)
+	notepresseCritique DECIMAL(2,1),
+	notespectateurCritique DECIMAL(2,1)
 );
 GO
 
