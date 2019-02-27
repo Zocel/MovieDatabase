@@ -104,7 +104,7 @@ GO
 CREATE TABLE films
 (
 	idFilm INT IDENTITY(1,1) PRIMARY KEY,
-	titreFilm VARCHAR(25) CONSTRAINT films_titreFilm_NN NOT NULL,
+	titreFilm VARCHAR(55) CONSTRAINT films_titreFilm_NN NOT NULL,
 	genreFilm VARCHAR(20) CONSTRAINT films_genreFilm_NN NOT NULL,
 	budgetFilm INT CONSTRAINT films_budgetFilm_NN NOT NULL,
 	dureeFilm INT CONSTRAINT films_dureeFilm_NN NOT NULL,
