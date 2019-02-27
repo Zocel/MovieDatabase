@@ -1,4 +1,5 @@
 ﻿/* Création de la DATABASE 'MOVIES' avec vérification qu'elle existe déjà */
+
 IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'MOVIES')
 DROP DATABASE [MOVIES]
 GO
@@ -8,6 +9,7 @@ use [MOVIES]
 GO
 
 /* Création de la TABLE 'personnages' */
+
 CREATE TABLE personnages
 (
 	idPersonnage INT IDENTITY(1,1) PRIMARY KEY,
@@ -20,7 +22,9 @@ CREATE TABLE personnages
 	createurPersonnage VARCHAR(50)
 );
 GO
+
 /* Création de la TABLE 'distinctions' */
+
 CREATE TABLE distinctions
 (
 	idDistinction INT IDENTITY(1,1) PRIMARY KEY,
@@ -30,7 +34,9 @@ CREATE TABLE distinctions
 	lieuDistinction VARCHAR(10)
 );
 GO
+
 /* Création de la TABLE 'artistes' */
+
 CREATE TABLE artistes
 (
 	idArtiste INT IDENTITY(1,1) PRIMARY KEY,
@@ -46,7 +52,9 @@ CREATE TABLE artistes
 	professionArtiste VARCHAR(30)
 );
 GO
+
 /* Création de la TABLE 'societeproduction' */
+
 CREATE TABLE societeproduction
 (
 	idProduction INT IDENTITY(1,1) PRIMARY KEY,
@@ -57,7 +65,9 @@ CREATE TABLE societeproduction
 	directeurProduction VARCHAR(50) CONSTRAINT societeproduction_directeurProduction_NN NOT NULL
 );
 GO
+
 /* Création de la TABLE 'critique' */
+
 CREATE TABLE critique
 (
 	idCritique INT IDENTITY(1,1) PRIMARY KEY,
@@ -65,7 +75,9 @@ CREATE TABLE critique
 	noteCritique DECIMAL(2,1)
 );
 GO
+
 /* Création de la TABLE 'boxoffice' */
+
 CREATE TABLE boxoffice
 (
 	idBoxoffice INT IDENTITY(1,1) PRIMARY KEY,
@@ -75,7 +87,9 @@ CREATE TABLE boxoffice
 	nombresemainesBoxoffice INT
 );
 GO
+
 /* Création de la TABLE 'datesortie' */
+
 CREATE TABLE datesortie
 (
 	idDatesortie INT IDENTITY(1,1) PRIMARY KEY,
@@ -84,7 +98,9 @@ CREATE TABLE datesortie
 	dateSortie DATE CONSTRAINT datesortie_dateSortie_NN NOT NULL
 );
 GO
+
 /* Création de la TABLE 'films' */
+
 CREATE TABLE films
 (
 	idFilm INT IDENTITY(1,1) PRIMARY KEY,
