@@ -26,7 +26,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 
 ## Modèle Conceptuel de Données
 
-![](https://github.com/Zocel/MovieDatabase/blob/master/Sch%C3%A9ma%20MCD%20MovieDatabase.png)
+![](https://github.com/Zocel/MovieDatabase/blob/master/Images/Sch%C3%A9ma%20MCD%20MovieDatabase.png)
 
 
 ## Pool de 10 questions
