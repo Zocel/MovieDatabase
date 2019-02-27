@@ -1,5 +1,5 @@
 # MovieDatabase
-Ce projet *Ydays* consiste en la création d'une base de données en **SQL** sur les films.
+Ce projet de *Ydays* consiste en la création d'une base de données en **SQL** sur les films.
 
 ## Auteurs
 **Bordeaux Ynov Campus Informatique**

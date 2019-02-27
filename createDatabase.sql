@@ -16,7 +16,6 @@ CREATE TABLE personnages
 	aliasPersonnage VARCHAR(15),
 	lieuPersonnage VARCHAR(20),
 	activitePersonnage VARCHAR(15) CONSTRAINT personnages_activitePersonnage_NN NOT NULL,
-	taillePersonnage DECIMAL(3,2),
 	nemesisPersonnage VARCHAR(15),
 	createurPersonnage VARCHAR(50)
 );
@@ -42,6 +41,7 @@ CREATE TABLE artistes
 	naissanceArtiste DATE CONSTRAINT artistes_naissanceArtiste_NN NOT NULL,
 	mortArtiste DATE,
 	sexeArtiste VARCHAR(1) CONSTRAINT artistes_sexeArtiste_CK CHECK (sexeArtiste IN ('M','F')),
+	tailleArtiste DECIMAL(3,2),
 	nationaliteArtiste(15),
 	professionArtiste VARCHAR(30)
 );
@@ -80,6 +80,7 @@ CREATE TABLE datesortie
 (
 	idDatesortie INT IDENTITY(1,1) PRIMARY KEY,
 	paysDatesortie VARCHAR(10) CONSTRAINT datesortie_paysDatesortie_NN NOT NULL,
+	forbiddenpaysDatesortie VARCHAR(10),
 	dateSortie DATE CONSTRAINT datesortie_dateSortie_NN NOT NULL
 );
 GO
