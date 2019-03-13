@@ -26,11 +26,11 @@ GO
 CREATE TABLE personnages
 (
 	idPersonnage INT IDENTITY(1,1) PRIMARY KEY,
-	nomPersonnage VARCHAR(25) CONSTRAINT personnages_nomPersonnage_NN NOT NULL,
-	prenomPersonnage VARCHAR(20) CONSTRAINT personnages_prenomPersonnage_NN NOT NULL,
+	nomPersonnage VARCHAR(25),
+	prenomPersonnage VARCHAR(20),
 	aliasPersonnage VARCHAR(15),
 	lieuPersonnage VARCHAR(20),
-	activitePersonnage VARCHAR(15) CONSTRAINT personnages_activitePersonnage_NN NOT NULL,
+	activitePersonnage VARCHAR(15),
 	nemesisPersonnage VARCHAR(15),
 	createurPersonnage VARCHAR(50),
 	idFilm INT CONSTRAINT personnages_idFilm_FK REFERENCES films
@@ -46,7 +46,18 @@ CREATE TABLE distinctions
 	typeDistinction VARCHAR(10) CONSTRAINT distinctions_typeDistinction_CK CHECK(typeDistinction IN ('Récompense','Nominations')),
 	dateDistinction DATE,
 	lieuDistinction VARCHAR(10),
-	idFilm INT CONSTRAINT distinctions_idFilm_FK REFERENCES films
+	idFilm INT CONSTRAINT distinctions_idFilm_FK REFERENCES films,
+	idCategorie INT CONSTRAINT distinctions_idCategorie_FK REFERENCES categoriedistinctions,
+	idArtiste INT CONSTRAINT distinctions_idArtiste_FK REFERENCES artistes
+);
+GO
+
+/* Création de la TABLE 'categoriedistinctions' */
+
+CREATE TABLE categoriedistinctions
+(
+	idCategorie INT IDENTITY(1,1) PRIMARY KEY,
+	nomCategorie VARCHAR(15),
 );
 GO
 
