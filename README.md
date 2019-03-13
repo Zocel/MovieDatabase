@@ -31,7 +31,39 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 
 ## Pool de 10 questions
 
-1.  Ceci est un test de question
+1.  Sur tous les films sorties après les années 2002, quels est le budget moyen ?
+
+     ```sql
+    SELECT films 
+    FROM MOVIES 
+    WHERE year(dateSortie) > 2002
+
+    ```
+
+1.  Sur la totalité des films, quel est la durée moyenne d'un film ?
+
+     ```sql
+    SELECT films
+    FROM MOVIES
+    ```
+
+1.  Quel film de Christopher Nolan a généré le plus de recettes et a le plus plu ?
+
+     ```sql
+    SELECT film
+    FROM MOVIES m
+    INNER JOIN artistes a
+    ON (m.idFilm = a.idFilm)
+    WHERE upper(nomArtiste) = "NOLAN"
+    ```
+
+1.  Quel film a connu la plus mauvaise critique d'Allociné et a le plus plu aux spectateurs ?
+
+     ```sql
+    INSERT INTO
+    ```
+
+1.  Quel film a eu le meilleur rendement financier ? (plus petit budget mais gros gains)
 
      ```sql
     INSERT INTO
@@ -67,26 +99,6 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     INSERT INTO
     ```
 
-1.  Ceci est un test de question
-
-     ```sql
-    INSERT INTO
-    ```
-
-1.  Ceci est un test de question
-
-     ```sql
-    INSERT INTO
-    ```
-
-1.  Ceci est un test de question
-
-     ```sql
-    INSERT INTO
-    ```
-
-1.  Ceci est un test de question
-
-     ```sql
-    INSERT INTO
-    ```
+Sur tous les fims quel acteur ressort avec le plus de récompenses ou de nominations par films
+Sur tous les films faire un classement acteur principal par films qui ont généré le plus au box office
+Quelle société de production a employé l'acteur dont le film a généré le plus de recette, le plus de critique positive et qui a été nominé au moins une fois avec une date de sortie en salle > 2006 (modifiable)
