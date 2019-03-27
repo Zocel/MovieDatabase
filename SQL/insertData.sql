@@ -66,3 +66,29 @@ VALUES
 ('Spalko', 'Irina', NULL, NULL, 'Colonel soviétique', 'Indiana Jones', NULL, 10),
 ('Williams', 'Henry', 'Mutt', NULL, NULL, 'Colonel Irina Spalko', NULL, 10),
 ('Oxley', 'Harold', NULL, NULL, 'Professeur', NULL, NULL, 10);
+
+INSERT INTO artistes(nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, sexeArtiste, tailleArtiste, nationaliteArtiste, professionArtiste, idFilm, idPersonnage, idDistinction)
+VALUES
+('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 1, NULL, NULL, NULL),
+('McConaughey', 'Matthew', '1969-11-04', NULL, 'M', 1.82, 'Américaine', 'Acteur', 1, 1, NULL),
+('Hathaway', 'Anne', '1982-11-12', NULL, 'F', 1.73, 'Américaine', 'Acteur', 1, 2, NULL),
+('Chastain', 'Jessica', '1977-03-24', NULL, 'F', 1.63, 'Américaine', 'Acteur', 1, 3, NULL),
+('Caine', 'Michael', '1933-03-14', NULL, 'M', 1.88, 'Britannique', 'Acteur', 1, 4, NULL),
+('Affleck', 'Casey', '1975-08-12', NULL, 'M', 1.75, 'Américaine', 'Acteur', 1, 5, NULL),
+('Lithgow', 'John', '1945-10-19', NULL, 'M', 1.93, 'Américaine', 'Acteur', 1, 6, NULL),
+('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 2, NULL, NULL, NULL),
+('Whitehead', 'Fionn', '1997-07-18', NULL, 'M', 1.75, 'Britannique', 'Acteur', 2, 1, NULL),
+('Glynn-Carney', 'Tom', '1995-02-07', NULL, 'M', 1.78, 'Britannique', 'Acteur', 2, 2, NULL),
+('Lowden', 'Jack', '1990-06-02', NULL, 'M', 1.85, 'Britannique', 'Acteur', 2, 3, NULL),
+('Styles', 'Harry', '1994-02-01', NULL, 'M', 1.83, 'Britannique', 'Acteur', 2, 4, NULL),
+('Keoghan', 'Barry', '1992-10-17', NULL, 'M', 1.70, 'Irlandaise', 'Acteur', 2, 5, NULL),
+('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 2, 6, NULL),
+('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 3, NULL, NULL, NULL),
+('Bale', 'Christian', '1974-01-30', NULL, 'M', 1.83, 'Britanno-américaine', 'Acteur', 3, 1, NULL),
+('Ledger', 'Heath', '1979-04-04', '2008-01-22', 1.85, 'Australienne', 'Acteur', 3, 2, NULL),
+('Caine', 'Michael', '1933-03-14', NULL, 'M', 1.88, 'Britannique', 'Acteur', 3, 3, NULL),
+('Oldman', 'Gary', '1958-03-21', NULL, 'M', 1.74, 'Britannique', 'Acteur', 3, 4, NULL),
+('Eckhart', 'Aaron', '1968-03-12', NULL, 'M', 1.83, 'Américaine', 'Acteur', 3, 5, NULL),
+('Gyllenhaal', 'Maggie', '1977-11-16', NULL, 'F', 1.75, 'Américaine', 'Acteur', 3, 6, NULL),
+('Freeman', 'Morgan', '1937-06-01', NULL, 'M', 1.88, 'Américaine', 'Acteur', 3, 7, NULL),
+('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 3, 8, NULL);
