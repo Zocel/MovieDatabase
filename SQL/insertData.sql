@@ -53,9 +53,9 @@ VALUES
 (NULL, 'Stoïk', 'Stoïk la Brute', 'Île de Beurk', NULL, NULL, 'Cressida Cowell', 7),
 (NULL, NULL, 'Gueulfor', 'Île de Beurk', NULL, NULL, 'Cressida Cowell', 7),
 ('Hofferson', 'Astrid', NULL, 'Île de Beurk', NULL, NULL, 'Cressida Cowell', 7),
-('Strange', 'Stephen', 'Docteur Strange', 'New York', 'Ancien neurochirurgien', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
+('Strange', 'Stephen', 'Doctor Strange', 'New York', 'Ancien neurochirurgien', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
 ('Mordo', 'Karl Amadeus', 'Baron Mordo', 'Kamar-Taj', "Ancien prince consort d'Umar", 'Docteur Strange', 'Stan Lee & Steve Ditko', 8),
-('Strange', 'Stephen', 'Docteur Strange', 'New York', 'Ancien neurochirurgien', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
+(NULL, NULL, 'Kaecilius', 'Kamar-Taj', NULL 'Doctor Strange', 'Stan Lee & Steve Ditko', 8),
 (NULL, 'Yao', "L'Ancien", "Kamar-Taj", 'Sorcier Suprême', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
 ('Palmer', 'Christine', NULL, 'New York', 'Docteur', NULL, NULL, 8),
 ('Mandela', 'Nelson', 'Madiba', 'Afrique du Sud', "Président de l'Afrique du Sud", NULL, NULL, 9),
@@ -113,7 +113,13 @@ VALUES
 ('Baruchel', 'Jay', '1982-04-09', NULL, 'M', 1.83, 'Canadienne','Acteur', 7, 1, NULL),
 ('Butler', 'Gerard', '1969-11-13', NULL, 'M', 1.88, 'Britannique', 'Acteur', 7, 2, NULL),
 ('Ferguson', 'Craig', '1962-05-17', NULL, 'M', 1.87, 'Britanno-américaine', 'Acteur', 7, 3, NULL),
-('Ferrera', 'America', '1984-04-18', NULL, 'F', 1.55, 'Américaine', 'Acteur', 7, 4, NULL);
+('Ferrera', 'America', '1984-04-18', NULL, 'F', 1.55, 'Américaine', 'Acteur', 7, 4, NULL),
+('Derrickson', 'Scott', '1977-03-18', NULL, 'M', NULL, 'Américaine', 'Réalisateur', 8, NULL, NULL),
+('Cumberbatch', 'Benedict', '1976-07-19', NULL, 'M', 1.83, 'Britannique', 'Acteur', 8, 1, NULL),
+('Ejiofor', 'Chiwetel', '1977-07-10', NULL, 'M', 1.78, 'Britanno-nigérienne', 'Acteur', 8, 2, NULL),
+('Mikkelsen', 'Mads', '1965-11-22', NULL, 'M', 1.83, 'Danoise', 'Acteur', 8, 3, NULL),
+('Swinton', 'Tilda', '1960-11-05', NULL, 'F', 1.79, 'Britannique', 'Acteur', 8, 4, NULL),
+('McAdams', 'Rachel', '1978-11-17', NULL, 'F', 1.63, 'Canadienne', 'Acteur', 8, 5, NULL);
 
 INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemaineBoxoffice, idFilm)
 VALUES
