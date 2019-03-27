@@ -67,6 +67,7 @@ VALUES
 ('Williams', 'Henry', 'Mutt', NULL, NULL, 'Colonel Irina Spalko', NULL, 10),
 ('Oxley', 'Harold', NULL, NULL, 'Professeur', NULL, NULL, 10);
 
+<<<<<<< HEAD
 INSERT INTO artistes(nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, sexeArtiste, tailleArtiste, nationaliteArtiste, professionArtiste, idFilm, idPersonnage, idDistinction)
 VALUES
 ('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 1, NULL, NULL, NULL),
@@ -92,3 +93,94 @@ VALUES
 ('Gyllenhaal', 'Maggie', '1977-11-16', NULL, 'F', 1.75, 'Américaine', 'Acteur', 3, 6, NULL),
 ('Freeman', 'Morgan', '1937-06-01', NULL, 'M', 1.88, 'Américaine', 'Acteur', 3, 7, NULL),
 ('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 3, 8, NULL);
+=======
+
+INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemaineBoxoffice, idFilm)
+VALUES
+('France', 2640439, '2015-02-03', 13, 1),
+('France', 2525630, '2017-10-31', 15, 2),
+('France', 3036568, '2009-11-05', 11, 3),
+('France', 850346, '2008-04-09', 11, 4),
+('France', 1847000, '2012-05-15', 11, 5),
+('France', 2579878, '2001-04-03', 11, 6),
+('France', 2225690, '2010-10-16', 11, 7),
+('France', 1973652, '2016-11-22', 11, 8),
+('France', 3110394, '2010-03-23', 11, 9),
+('États-Unis', 786000000, '2008-08-05', 11, 10);
+
+INSERT INTO datesortie(paysDatesortie, forbiddenpaysDatesortie, dateSortie, idFilm) 
+VALUES
+('France', NULL, '2014-11-05', 1),
+('France', NULL, '2017-07-19', 2),
+('France', NULL, '2008-08-13', 3),
+('France', NULL, '2008-02-06', 4),
+('France', NULL, '2012-03-14', 5),
+('France', NULL, '2001-02-28', 6),
+('France', NULL, '2010-06-30', 7),
+('France', NULL, '2016-10-26', 8),
+('France', NULL, '2010-01-13', 9),
+('France', NULL, '2008-05-21', 10);
+
+INSERT INTO critique(nomCritique, notepresseCritique, notespectateurCritique, idFilm)
+VALUES
+(Allociné, 3.8, 4.5, 1),
+(Allociné, 4.1, 3.9, 2),
+(Allociné, 4.0, 4.5, 3),
+(Allociné, 2.6, 3.4, 4),
+(Allociné, 3.0, 3.4, 5),
+(Allociné, 3.3, 3.4, 6),
+(Allociné, 3.8, 4.4, 7),
+(Allociné, 3.1, 4.0, 8),
+(Allociné, 4.1, 4.1, 9),
+(Allociné, 3.0, 3.0, 10);
+
+INSERT INTO societeproduction(nomProduction, creationProduction, fondateurProduction, siegesocialProduction, directeurProduction, idFilm)
+VALUES
+('Syncopy Films', '2001-01-01', 'Christopher Nolan', 'Londres', 'Christopher Nolan', 1),
+('Syncopy Films', '2001-01-01', 'Christopher Nolan', 'Londres', 'Christopher Nolan', 2),
+('Syncopy Films', '2001-01-01', 'Christopher Nolan', 'Londres', 'Christopher Nolan', 3),
+('Lionsgate', '1997-07-03', 'Frank Giustra', 'Santa Monica', 'Jon Felthheimer', 4),
+('Green Hat Films', '2008-01-01', NULL, NULL, NULL, 5),
+('Scott Free Productions', '1995-01-01', 'Ridley Scott', 'Londres', 'Ridley Scott', 6),
+('DreamWorks Animation', '1994-10-12', 'Steven Spielberg', 'Glendale', 'Christopher DeFaria', 7),
+('Marvel Studios', '1992-05-13', 'Avi Arad', 'Californie', 'Kevin Feige', 8),
+('Malpaso Productions', '1967-01-01', 'Clint Eastwood', 'Burbank', 'Clint Eastwood', 9),
+('Lucasfilm', '1971-01-01', 'Georges Lucas', 'Californie', 'Kathleen Kennedy', 10);
+
+INSERT INTO categoriedistinctions(nomCategorie)
+VALUES
+('Oscars'),
+('Golden Globes'),
+('BAFTA Awards'),
+('Thailand National Film Association Awards'),
+('Prix du cinéma suisse'),
+('Golden Horse Awards'),
+('Guldbagges'),
+('Nikas'),
+('British Academy Film Awards'),
+('Premiile Gopo'),
+('New Zealand Film and Television Awards'),
+('Amandaprisen'),
+('Premio Ariel'),
+('Prix Jutra'),
+('Prix du cinéma nordique'),
+('Gouden Kalf'),
+('Lux Style Awards'),
+('Sidabrinė gervė'),
+('Nippon Akademī-shō'),
+('David di Donatello'),
+('Ophirs'),
+('Irish Film and Television Awards'),
+('Citras'),
+('National Film Awards '),
+('Hong Kong Film Awards'),
+('Jussis'),
+('Prix du cinéma européen'),
+('Grand Bell Awards'),
+('Prix Gaudí'),
+('Lolas'),
+('SAFTAs'),
+('AMAA Awards'),
+('Razzie Awards'),
+('César');
+>>>>>>> master
