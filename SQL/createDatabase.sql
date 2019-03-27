@@ -8,6 +8,28 @@ GO
 use [MOVIES]
 GO
 
+/* Création de la TABLE 'categoriedistinctions' */
+
+CREATE TABLE categoriedistinctions
+(
+	idCategorie INT IDENTITY(1,1) PRIMARY KEY,
+	nomCategorie VARCHAR(15),
+);
+GO
+
+/* Création de la TABLE 'distinctions' */
+
+CREATE TABLE distinctions
+(
+	idDistinction INT IDENTITY(1,1) PRIMARY KEY,
+	titreDistinction VARCHAR(25),
+	typeDistinction VARCHAR(10) CONSTRAINT distinctions_typeDistinction_CK CHECK(typeDistinction IN ('Récompense','Nominations')),
+	dateDistinction DATE,
+	lieuDistinction VARCHAR(10),
+	idCategorie INT CONSTRAINT distinctions_idCategorie_FK REFERENCES categoriedistinctions NOT NULL
+);
+GO
+
 /* Création de la TABLE 'films' */
 
 CREATE TABLE films
@@ -17,7 +39,8 @@ CREATE TABLE films
 	genreFilm VARCHAR(20) CONSTRAINT films_genreFilm_NN NOT NULL,
 	budgetFilm INT CONSTRAINT films_budgetFilm_NN NOT NULL,
 	dureeFilm INT CONSTRAINT films_dureeFilm_NN NOT NULL,
-	paysorigineFilm VARCHAR(15) CONSTRAINT films_paysorigineFilm_NN NOT NULL
+	paysorigineFilm VARCHAR(15) CONSTRAINT films_paysorigineFilm_NN NOT NULL,
+	idDistinction INT CONSTRAINT films_idDistinction_FK REFERENCES distinctions
 );
 GO
 
@@ -37,36 +60,11 @@ CREATE TABLE personnages
 );
 GO
 
-/* Création de la TABLE 'distinctions' */
-
-CREATE TABLE distinctions
-(
-	idDistinction INT IDENTITY(1,1) PRIMARY KEY,
-	titreDistinction VARCHAR(25),
-	typeDistinction VARCHAR(10) CONSTRAINT distinctions_typeDistinction_CK CHECK(typeDistinction IN ('Récompense','Nominations')),
-	dateDistinction DATE,
-	lieuDistinction VARCHAR(10),
-	idFilm INT CONSTRAINT distinctions_idFilm_FK REFERENCES films,
-	idCategorie INT CONSTRAINT distinctions_idCategorie_FK REFERENCES categoriedistinctions,
-	idArtiste INT CONSTRAINT distinctions_idArtiste_FK REFERENCES artistes
-);
-GO
-
-/* Création de la TABLE 'categoriedistinctions' */
-
-CREATE TABLE categoriedistinctions
-(
-	idCategorie INT IDENTITY(1,1) PRIMARY KEY,
-	nomCategorie VARCHAR(15),
-);
-GO
-
 /* Création de la TABLE 'artistes' */
 
 CREATE TABLE artistes
 (
 	idArtiste INT IDENTITY(1,1) PRIMARY KEY,
-	idPersonnage INT CONSTRAINT  artistes_idPersonnage_FK REFERENCES personnages,
 	idDistinction INT CONSTRAINT artistes_idDistinction_FK REFERENCES distinctions,
 	nomArtiste VARCHAR(25) CONSTRAINT artistes_nomArtiste_NN NOT NULL,
 	prenomArtiste VARCHAR(20) CONSTRAINT artistes_prenomArtiste_NN NOT NULL,
@@ -76,7 +74,9 @@ CREATE TABLE artistes
 	tailleArtiste DECIMAL(3,2),
 	nationaliteArtiste VARCHAR(15),
 	professionArtiste VARCHAR(30),
-	idFilm INT CONSTRAINT artistes_idFilm_FK REFERENCES films
+	idFilm INT CONSTRAINT artistes_idFilm_FK REFERENCES films NOT NULL,
+	idPersonnage INT CONSTRAINT  artistes_idPersonnage_FK REFERENCES personnages,
+	idDistinction INT CONSTRAINT artistes_idDistinction_FK REFERENCES distinctions
 );
 GO
 
