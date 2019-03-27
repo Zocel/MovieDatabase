@@ -67,7 +67,6 @@ VALUES
 ('Williams', 'Henry', 'Mutt', NULL, NULL, 'Colonel Irina Spalko', NULL, 10),
 ('Oxley', 'Harold', NULL, NULL, 'Professeur', NULL, NULL, 10);
 
-<<<<<<< HEAD
 INSERT INTO artistes(nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, sexeArtiste, tailleArtiste, nationaliteArtiste, professionArtiste, idFilm, idPersonnage, idDistinction)
 VALUES
 ('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 1, NULL, NULL, NULL),
@@ -93,7 +92,6 @@ VALUES
 ('Gyllenhaal', 'Maggie', '1977-11-16', NULL, 'F', 1.75, 'Américaine', 'Acteur', 3, 6, NULL),
 ('Freeman', 'Morgan', '1937-06-01', NULL, 'M', 1.88, 'Américaine', 'Acteur', 3, 7, NULL),
 ('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 3, 8, NULL);
-=======
 
 INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemaineBoxoffice, idFilm)
 VALUES
@@ -108,7 +106,7 @@ VALUES
 ('France', 3110394, '2010-03-23', 11, 9),
 ('États-Unis', 786000000, '2008-08-05', 11, 10);
 
-INSERT INTO datesortie(paysDatesortie, forbiddenpaysDatesortie, dateSortie, idFilm) 
+INSERT INTO datesortie(paysDatesortie, forbiddenpaysDatesortie, dateSortie, idFilm)
 VALUES
 ('France', NULL, '2014-11-05', 1),
 ('France', NULL, '2017-07-19', 2),
@@ -183,4 +181,3 @@ VALUES
 ('AMAA Awards'),
 ('Razzie Awards'),
 ('César');
->>>>>>> master
