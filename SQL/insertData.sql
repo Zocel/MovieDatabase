@@ -91,7 +91,29 @@ VALUES
 ('Eckhart', 'Aaron', '1968-03-12', NULL, 'M', 1.83, 'Américaine', 'Acteur', 3, 5, NULL),
 ('Gyllenhaal', 'Maggie', '1977-11-16', NULL, 'F', 1.75, 'Américaine', 'Acteur', 3, 6, NULL),
 ('Freeman', 'Morgan', '1937-06-01', NULL, 'M', 1.88, 'Américaine', 'Acteur', 3, 7, NULL),
-('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 3, 8, NULL);
+('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 3, 8, NULL),
+('Sylvester', 'Stallone', '1946-07-06', NULL, 'M', 1.77, 'Américaine', 'Réalisateur/Acteur', 4, 1, NULL),
+('Benz', 'Julie', '1972-05-01', NULL, 'F', 1.63, 'Américaine', 'Acteur', 4, 2, NULL),
+('Schulze', 'Paul', '1962-06-12', NULL, 'M', NULL, 'Américaine', 'Acteur', 4, 3, NULL),
+('McTavish', 'Graham', '1961-01-04', NULL, 'M', 1.89, 'Britannique', 'Acteur', 4, 4, NULL),
+('Marsden', 'Matthew', '1973-03-03', NULL, 'M', NULL, 'Britannique', 'Acteur', 4, 5, NULL),
+('Kang', 'Tim', '1973-03-16', NULL, 'M', 1.73, 'Américano-sud-coréenne', 'Acteur', 4, 6, NULL),
+('Crenna', 'Richard', '1926-11-30', '2003-01-17', 'M', 1.85, 'Américaine', 'Acteur', 4, 7, NULL),
+('Nourizadeh', 'Nima', '1977-11-12', 'M', NULL, 'Britannique', 'Réalisateur', 5, NULL, NULL),
+('Mann', 'Thomas', '1991-09-27', NULL, 'M', 1.81, 'Américaine', 'Acteur', 5, 1, NULL),
+('Cooper', 'Olivier', '1988-12-02', NULL, 'M', 1.70, 'Américaine', 'Acteur', 5, 2, NULL),
+('Brown', 'Jonathan Daniel', '1989-07-01', NULL, 'M', NULL, 'Américaine', 'Acteur', 5, 3, NULL),
+('Blanton', 'Kirby Bliss', '1990-10-24', NULL, 'F', NULL, 'Américaine', 'Acteur', 5, 4, NULL),
+('Hender', 'Brady', '1996-08-29', NULL, 'M', NULL, 'Américaine', 'Acteur', 5, 5, NULL),
+('Knapp', 'Alexis', '1989-07-31', NULL, 'F', NULL, 'Américaine', 'Acteur', 5, 6, NULL),
+('Scott', 'Ridley', '1937-11-30', NULL, 'M', NULL, 'Britannique', 'Réalisateur', 6, NULL, NULL),
+('Hopkins', 'Anthony', '1937-12-31', NULL, 'M', 1.74, 'Britanno-américaine', 'Acteur', 6, 1, NULL),
+('Moore', 'Julianne', '1960-12-03', NULL, 'F', 1.60, 'Américaine', 'Acteur', 6, 2, NULL),
+('Oldman', 'Gary', '1958-03-21', NULL, 'M', 1.74, 'Britannique', 'Acteur', 6, 3, NULL),
+('Baruchel', 'Jay', '1982-04-09', NULL, 'M', 1.83, 'Canadienne','Acteur', 7, 1, NULL),
+('Butler', 'Gerard', '1969-11-13', NULL, 'M', 1.88, 'Britannique', 'Acteur', 7, 2, NULL),
+('Ferguson', 'Craig', '1962-05-17', NULL, 'M', 1.87, 'Britanno-américaine', 'Acteur', 7, 3, NULL),
+('Ferrera', 'America', '1984-04-18', NULL, 'F', 1.55, 'Américaine', 'Acteur', 7, 4, NULL);
 
 INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemaineBoxoffice, idFilm)
 VALUES
