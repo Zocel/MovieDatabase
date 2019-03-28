@@ -119,7 +119,17 @@ VALUES
 ('Ejiofor', 'Chiwetel', '1977-07-10', NULL, 'M', 1.78, 'Britanno-nigérienne', 'Acteur', 8, 2, NULL),
 ('Mikkelsen', 'Mads', '1965-11-22', NULL, 'M', 1.83, 'Danoise', 'Acteur', 8, 3, NULL),
 ('Swinton', 'Tilda', '1960-11-05', NULL, 'F', 1.79, 'Britannique', 'Acteur', 8, 4, NULL),
-('McAdams', 'Rachel', '1978-11-17', NULL, 'F', 1.63, 'Canadienne', 'Acteur', 8, 5, NULL);
+('McAdams', 'Rachel', '1978-11-17', NULL, 'F', 1.63, 'Canadienne', 'Acteur', 8, 5, NULL),
+('Eastwood', 'Clint', '1930-05-31', NULL, 'M', 1.93, 'Américaine', 'Réalisateur', 9, NULL, NULL),
+('Freeman', 'Morgan', '1937-06-01', NULL, 'M', 1.88, 'Américaine', 'Acteur', 9, 1, NULL),
+('Damon', 'Matt', '1970-10-08', NULL, 'M', 1.78, 'Américaine', 'Acteur', 9, 2, NULL),
+('Eastwood', 'Scott', '1986-03-21', NULL, 'M', 1.8, 'Américaine', 'Acteur', 9, 3, NULL),
+('Spielberg', 'Steven', '1946-12-18', NULL, 'M', NULL, 'Américaine', 'Réalisateur', 10, NULL, NULL),
+('Ford', 'Harrison', '1942-07-13', NULL, 'M', 1.85, 'Américaine', 'Acteur', 10, 1, NULL),
+('Allen', 'Karen', '1951-10-05', NULL, 'F', 1.7, 'Américaine', 'Acteur', 10, 2, NULL),
+('Blanchett', 'Cate', '1969-05-14', NULL, 'F', 1.74, 'Australienne', 10, 3, NULL),
+('LaBeouf', 'Shia', '1986-06-11', NULL, 'M', 1.76, 'Américaine', 'Acteur', 10, 4, NULL),
+('Hurt', 'John', '1940-01-22', '2017-01-25', 'M', 1.75, 'Britannique', 'Acteur', 10, 5, NULL);
 
 INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemaineBoxoffice, idFilm)
 VALUES
