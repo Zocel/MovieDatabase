@@ -1,16 +1,4 @@
-﻿/* Création de la DATABASE 'MOVIES' avec vérification qu'elle existe déjà */
-
-IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'MOVIES')
-DROP DATABASE [MOVIES]
-GO
-CREATE DATABASE [MOVIES]
-GO
-use [MOVIES]
-GO
-
-/* Création de la TABLE 'categoriedistinctions' */
-
-CREATE TABLE categoriedistinctions
+﻿CREATE TABLE categoriedistinctions
 (
 	idCategorie INT IDENTITY(1,1) PRIMARY KEY,
 	nomCategorie VARCHAR(15),
@@ -75,8 +63,7 @@ CREATE TABLE artistes
 	nationaliteArtiste VARCHAR(15),
 	professionArtiste VARCHAR(30),
 	idFilm INT CONSTRAINT artistes_idFilm_FK REFERENCES films NOT NULL,
-	idPersonnage INT CONSTRAINT  artistes_idPersonnage_FK REFERENCES personnages,
-	idDistinction INT CONSTRAINT artistes_idDistinction_FK REFERENCES distinctions
+	idPersonnage INT CONSTRAINT artistes_idPersonnage_FK REFERENCES personnages
 );
 GO
 

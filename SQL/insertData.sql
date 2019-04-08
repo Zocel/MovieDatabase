@@ -23,7 +23,7 @@ VALUES
 (NULL, 'Peter', NULL, 'Dunkerque', 'Fils du capitaine du Moonstone', 'Soldats allemands', NULL, 2),
 (NULL, 'Collins', NULL, 'Dunkerque', 'Pilote de la Royal Air Force', 'Soldats allemands', NULL, 2),
 (NULL, 'Alex', NULL, 'Dunkerque', 'Soldat des Argyll & Sutherland Highlanders', 'Soldats allemands', NULL, 2),
-(NULL, 'George', NULL, 'Dunkerque', "Membre d'équipage du Moonstone", 'Soldats allemands', NULL, 2),
+(NULL, 'George', NULL, 'Dunkerque', 'Membre d’équipage du Moonstone', 'Soldats allemands', NULL, 2),
 (NULL, NULL, NULL, 'Dunkerque', 'Officier du CEB', 'Soldats allemands', NULL, 2),
 ('Wayne', 'Bruce','Batman', 'Gotham City', 'Propriétaire de Wayne Enterprises', 'Le Joker', '', 3),
 (NULL, NULL,'Le Joker', 'Gotham City', 'Tueur en série', 'Batman', 'Bob Kane & Bill Finger', 3),
@@ -32,12 +32,12 @@ VALUES
 ('Dent', 'Harvey', 'Double-Face', 'Gotham City', 'Ancien procureur de district', 'Batman', 'Bob Kane & Bill Finger', 3),
 ('Dawes', 'Rachel', NULL, 'Gotham City', 'Ancien procureur général', NULL, 'David S. Goyer & Christopher Nolan', 3),
 ('Fox', 'Lucius', NULL, 'Gotham City', 'Directeur général de Wayne Enterprises', NULL, 'Len Wein & John Calnan',3),
-('Crane', 'Jonathan', "L'Épouvantail", 'Gotham City', 'Docteur en psychologie', 'Batman','Bob Kane & Bill Finger', 3),
+('Crane', 'Jonathan', 'L’Épouvantail', 'Gotham City', 'Docteur en psychologie', 'Batman','Bob Kane & Bill Finger', 3),
 ('Rambo', 'John James H.', 'Corbeau', 'Thaïlande', 'Militaire', 'Major Tint', 'David Morrell', 4),
 ('Miller', 'Sarah', NULL, 'États-Unis', NULL, 'Major Tint', NULL, 4),
 ('Burnett', 'Michael', NULL, 'États-Unis', 'Docteur', 'Major Tint', NULL, 4),
 ('Lewis', NULL, NULL, 'États-Unis', 'Militaire', 'Major Tint', NULL, 4),
-(NULL, NULL, "L'Écolier", 'États-Unis', 'Militaire', 'Major Tint', NULL, 4),
+(NULL, NULL, 'L’Écolier', 'États-Unis', 'Militaire', 'Major Tint', NULL, 4),
 ('En-Joo', NULL, NULL, 'États-Unis', 'Militaire', 'Major Tint', NULL, 4),
 ('Trautman', 'Samuel', 'Sam', NULL, 'Colonel', NULL, 'David Morrell',4),
 ('Kub', 'Thomas', NULL, 'Pasadena', 'Élève de terminale', NULL, NULL, 5),
@@ -49,16 +49,16 @@ VALUES
 ('Lecter', 'Hannibal', 'Hannibal le Cannibale', 'Florence', 'Psychiatre', 'Mason Verger', 'Thomas Harris', 6),
 ('Starling', 'Clarice', NULL, 'Florence', 'Agent du FBI', 'Hannibal Lecter', 'Thomas Harris', 6),
 ('Verger', 'Mason', NULL, 'Florence', 'Milliardaire pédophile', 'Hannibal Lecter', 'Thomas Harris', 6),
-('Haddock', "Harold Horrib'", NULL, 'Île de Beurk', 'Jeune apprenti forgeron', NULL, 'Cressida Cowell', 7),
+('Haddock', 'Harold Horrib’', NULL, 'Île de Beurk', 'Jeune apprenti forgeron', NULL, 'Cressida Cowell', 7),
 (NULL, 'Stoïk', 'Stoïk la Brute', 'Île de Beurk', NULL, NULL, 'Cressida Cowell', 7),
 (NULL, NULL, 'Gueulfor', 'Île de Beurk', NULL, NULL, 'Cressida Cowell', 7),
 ('Hofferson', 'Astrid', NULL, 'Île de Beurk', NULL, NULL, 'Cressida Cowell', 7),
 ('Strange', 'Stephen', 'Doctor Strange', 'New York', 'Ancien neurochirurgien', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
-('Mordo', 'Karl Amadeus', 'Baron Mordo', 'Kamar-Taj', "Ancien prince consort d'Umar", 'Docteur Strange', 'Stan Lee & Steve Ditko', 8),
-(NULL, NULL, 'Kaecilius', 'Kamar-Taj', NULL 'Doctor Strange', 'Stan Lee & Steve Ditko', 8),
-(NULL, 'Yao', "L'Ancien", "Kamar-Taj", 'Sorcier Suprême', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
+('Mordo', 'Karl Amadeus', 'Baron Mordo', 'Kamar-Taj', 'Ancien prince consort d’Umar', 'Docteur Strange', 'Stan Lee & Steve Ditko', 8),
+(NULL, NULL, 'Kaecilius', 'Kamar-Taj', NULL, 'Doctor Strange', 'Stan Lee & Steve Ditko', 8),
+(NULL, 'Yao', 'L’Ancien', 'Kamar-Taj', 'Sorcier Suprême', 'Dormammu', 'Stan Lee & Steve Ditko', 8),
 ('Palmer', 'Christine', NULL, 'New York', 'Docteur', NULL, NULL, 8),
-('Mandela', 'Nelson', 'Madiba', 'Afrique du Sud', "Président de l'Afrique du Sud", NULL, NULL, 9),
+('Mandela', 'Nelson', 'Madiba', 'Afrique du Sud', 'Président de l’Afrique du Sud', NULL, NULL, 9),
 ('Pienaar', 'Francois', NULL, 'Afrique du Sud', 'Capitaine des Springboks', NULL, NULL, 9),
 ('Stransky', 'Joël', NULL, 'Afrique du Sud', 'Joueur de rugby à XV Sud-Africain', NULL, NULL, 9),
 ('Jones', 'Henry Walton', 'Indiana Jones', NULL, 'Archéologue', 'Colonel Irina Spalko ', 'George Lucas', 10),
@@ -69,23 +69,23 @@ VALUES
 
 INSERT INTO artistes(nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, sexeArtiste, tailleArtiste, nationaliteArtiste, professionArtiste, idFilm, idPersonnage, idDistinction)
 VALUES
-('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 1, NULL, NULL, NULL),
+('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 1, NULL, NULL),
 ('McConaughey', 'Matthew', '1969-11-04', NULL, 'M', 1.82, 'Américaine', 'Acteur', 1, 1, NULL),
 ('Hathaway', 'Anne', '1982-11-12', NULL, 'F', 1.73, 'Américaine', 'Acteur', 1, 2, NULL),
 ('Chastain', 'Jessica', '1977-03-24', NULL, 'F', 1.63, 'Américaine', 'Acteur', 1, 3, NULL),
 ('Caine', 'Michael', '1933-03-14', NULL, 'M', 1.88, 'Britannique', 'Acteur', 1, 4, NULL),
 ('Affleck', 'Casey', '1975-08-12', NULL, 'M', 1.75, 'Américaine', 'Acteur', 1, 5, NULL),
 ('Lithgow', 'John', '1945-10-19', NULL, 'M', 1.93, 'Américaine', 'Acteur', 1, 6, NULL),
-('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 2, NULL, NULL, NULL),
+('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 2, NULL, NULL),
 ('Whitehead', 'Fionn', '1997-07-18', NULL, 'M', 1.75, 'Britannique', 'Acteur', 2, 1, NULL),
 ('Glynn-Carney', 'Tom', '1995-02-07', NULL, 'M', 1.78, 'Britannique', 'Acteur', 2, 2, NULL),
 ('Lowden', 'Jack', '1990-06-02', NULL, 'M', 1.85, 'Britannique', 'Acteur', 2, 3, NULL),
 ('Styles', 'Harry', '1994-02-01', NULL, 'M', 1.83, 'Britannique', 'Acteur', 2, 4, NULL),
 ('Keoghan', 'Barry', '1992-10-17', NULL, 'M', 1.70, 'Irlandaise', 'Acteur', 2, 5, NULL),
 ('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 2, 6, NULL),
-('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 3, NULL, NULL, NULL),
+('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 3, NULL, NULL),
 ('Bale', 'Christian', '1974-01-30', NULL, 'M', 1.83, 'Britanno-américaine', 'Acteur', 3, 1, NULL),
-('Ledger', 'Heath', '1979-04-04', '2008-01-22', 1.85, 'Australienne', 'Acteur', 3, 2, NULL),
+('Ledger', 'Heath', '1979-04-04', '2008-01-22', 1.85, 'Australienne', 'Acteur', 3, 2, NULL, NULL),
 ('Caine', 'Michael', '1933-03-14', NULL, 'M', 1.88, 'Britannique', 'Acteur', 3, 3, NULL),
 ('Oldman', 'Gary', '1958-03-21', NULL, 'M', 1.74, 'Britannique', 'Acteur', 3, 4, NULL),
 ('Eckhart', 'Aaron', '1968-03-12', NULL, 'M', 1.83, 'Américaine', 'Acteur', 3, 5, NULL),
@@ -131,7 +131,7 @@ VALUES
 ('LaBeouf', 'Shia', '1986-06-11', NULL, 'M', 1.76, 'Américaine', 'Acteur', 10, 4, NULL),
 ('Hurt', 'John', '1940-01-22', '2017-01-25', 'M', 1.75, 'Britannique', 'Acteur', 10, 5, NULL);
 
-INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemaineBoxoffice, idFilm)
+INSERT INTO boxoffice(paysBoxoffice, recetteBoxoffice, datearretBoxoffice, nombresemainesBoxoffice, idFilm)
 VALUES
 ('France', 2640439, '2015-02-03', 13, 1),
 ('France', 2525630, '2017-10-31', 15, 2),
@@ -169,16 +169,16 @@ VALUES
 
 INSERT INTO critique(nomCritique, notepresseCritique, notespectateurCritique, idFilm)
 VALUES
-(Allociné, 3.8, 4.5, 1),
-(Allociné, 4.1, 3.9, 2),
-(Allociné, 4.0, 4.5, 3),
-(Allociné, 2.6, 3.4, 4),
-(Allociné, 3.0, 3.4, 5),
-(Allociné, 3.3, 3.4, 6),
-(Allociné, 3.8, 4.4, 7),
-(Allociné, 3.1, 4.0, 8),
-(Allociné, 4.1, 4.1, 9),
-(Allociné, 3.0, 3.0, 10);
+('Allociné', 3.8, 4.5, 1),
+('Allociné', 4.1, 3.9, 2),
+('Allociné', 4.0, 4.5, 3),
+('Allociné', 2.6, 3.4, 4),
+('Allociné', 3.0, 3.4, 5),
+('Allociné', 3.3, 3.4, 6),
+('Allociné', 3.8, 4.4, 7),
+('Allociné', 3.1, 4.0, 8),
+('Allociné', 4.1, 4.1, 9),
+('Allociné', 3.0, 3.0, 10);
 
 INSERT INTO societeproduction(nomProduction, creationProduction, fondateurProduction, siegesocialProduction, directeurProduction, idFilm)
 VALUES
