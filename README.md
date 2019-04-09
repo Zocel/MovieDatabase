@@ -34,38 +34,47 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Sur tous les films sorties après les années 2010, quels est le budget moyen ?
 
      ```sql
-    SELECT ( SUM(budgetFilm) / SUM(films) )
-    FROM MOVIES m
-    INNER JOIN datesortie ds
-    ON (m.idDatesortie = ds.idDatesortie)
-    WHERE YEAR(ds.dateSortie) > 2010;
+    SELECT ( SUM(f.budgetFilm) / COUNT(f.titreFilm) ) as "Budget Moyen Film année 2010"
+     FROM FILMS f
+     INNER JOIN datesortie ds
+     ON (f.idFilm = ds.idFilm)
+     WHERE YEAR(ds.dateSortie) > 2010;
     ```
 
 1.  Sur la totalité des films, quel est la durée moyenne d'un film ?
 
      ```sql
-    SELECT ( SUM(dureeFilm) / SUM(films))
-    FROM MOVIES;
+    SELECT ( SUM(dureeFilm) / COUNT(titreFilm)) as "Durée moyenne film"
+    FROM FILMS;
     ```
 
-1.  Quel film de Christopher Nolan a généré le plus de recettes et a le plus plu ?
+1.  Quel film de Christopher Nolan a généré le plus de recettes et dans quel pays ?
 
      ```sql
-    SELECT film
-    FROM MOVIES m
-    INNER JOIN artistes a
-    ON (m.idFilm = a.idFilm)
-    WHERE UPPER(a.nomArtiste) = "NOLAN";
+     SELECT titreFilm
+     FROM FILMS f
+     INNER JOIN artistes a
+     ON (f.idFilm = a.idFilm)
+     INNER JOIN boxoffice b
+     ON f.idFilm = b.idFilm
+     WHERE UPPER(a.nomArtiste) = 'NOLAN'
+     AND b.recetteBoxoffice = (SELECT MAX(recetteboxoffice)
+                                     FROM FILMS f
+                                     INNER JOIN boxoffice b
+                                     ON f.idFilm = b.idFilm
+                                     INNER JOIN artistes a
+                                     ON f.idFilm = a.idFilm
+						       WHERE UPPER(a.nomArtiste) = 'NOLAN');
     ```
 
-1.  Quel film a connu la plus mauvaise critique d'Allociné et a le plus plu aux spectateurs ?
+1.  Quel film a connu la plus mauvaise critique de la presse sur Allociné ?
 
      ```sql
-    SELECT film
-    FROM MOVIES m
+    SELECT titreFilm
+    FROM FILMS f
     INNER JOIN critique c
-    ON (m.idFilm = c.idFilm)
-    WHERE MIN(c.notepresseCritique) AND MAX(c.notespectateurCritique);
+    ON f.idFilm = c.idFilm
+    WHERE c.notepresseCritique = (SELECT MIN(notepresseCritique) FROM critique WHERE UPPER(nomCritique) = 'ALLOCINÉ');
     ```
 
 1.  Quel film a eu le meilleur rendement financier ? (plus petit budget mais gros gains au box-office)
