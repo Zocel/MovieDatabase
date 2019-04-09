@@ -85,7 +85,7 @@ VALUES
 ('Murphy', 'Cillian', '1976-05-25', NULL, 'M', 1.75, 'Irlandaise', 'Acteur', 2, 6, NULL),
 ('Nolan', 'Christopher', '1970-07-30', NULL, 'M', NULL, 'Britanno-américaine', 'Réalisateur', 3, NULL, NULL),
 ('Bale', 'Christian', '1974-01-30', NULL, 'M', 1.83, 'Britanno-américaine', 'Acteur', 3, 1, NULL),
-('Ledger', 'Heath', '1979-04-04', '2008-01-22', 'M', 1.85, 'Australienne', 'Acteur', 3, 2, NULL, NULL),
+('Ledger', 'Heath', '1979-04-04', '2008-01-22', 'M', 1.85, 'Australienne', 'Acteur', 3, 2, NULL),
 ('Caine', 'Michael', '1933-03-14', NULL, 'M', 1.88, 'Britannique', 'Acteur', 3, 3, NULL),
 ('Oldman', 'Gary', '1958-03-21', NULL, 'M', 1.74, 'Britannique', 'Acteur', 3, 4, NULL),
 ('Eckhart', 'Aaron', '1968-03-12', NULL, 'M', 1.83, 'Américaine', 'Acteur', 3, 5, NULL),
@@ -127,7 +127,7 @@ VALUES
 ('Spielberg', 'Steven', '1946-12-18', NULL, 'M', NULL, 'Américaine', 'Réalisateur', 10, NULL, NULL),
 ('Ford', 'Harrison', '1942-07-13', NULL, 'M', 1.85, 'Américaine', 'Acteur', 10, 1, NULL),
 ('Allen', 'Karen', '1951-10-05', NULL, 'F', 1.7, 'Américaine', 'Acteur', 10, 2, NULL),
-('Blanchett', 'Cate', '1969-05-14', NULL, 'F', 1.74, 'Australienne', 10, 3, NULL),
+('Blanchett', 'Cate', '1969-05-14', NULL, 'F', 1.74, 'Australienne','Acteur', 10, 3, NULL),
 ('LaBeouf', 'Shia', '1986-06-11', NULL, 'M', 1.76, 'Américaine', 'Acteur', 10, 4, NULL),
 ('Hurt', 'John', '1940-01-22', '2017-01-25', 'M', 1.75, 'Britannique', 'Acteur', 10, 5, NULL);
 
