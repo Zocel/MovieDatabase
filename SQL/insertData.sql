@@ -152,7 +152,17 @@ VALUES
 ('États-Unis', 217581231, '2010-07-22', 17, 7),
 ('États-Unis', 232641920, '2017-03-17', 19, 8),
 ('États-Unis', 37491364, '2010-03-25', 15, 9),
-('États-Unis', 317101119, '2008-10-16', 21, 10);
+('États-Unis', 317101119, '2008-10-16', 21, 10),
+('Worldwide', 677463813, '2015-03-19', NULL, 1),
+('Worldwide', 526940665, '2017-11-23', NULL, 2),
+('Worldwide', 1004934033, '2009-03-05', NULL, 3),
+('Worldwide', 113244290, '2008-03-27', NULL, 4),
+('Worldwide', 102731865, '2012-05-17', NULL, 5),
+('Worldwide', 351692268, '2001-08-16', NULL, 6),
+('Worldwide', 494878759, '2010-07-22', NULL, 7),
+('Worldwide', 677718395, '2017-03-17', NULL, 8),
+('Worldwide', 122233971, '2010-03-25', NULL, 9),
+('Worldwide', 786636033, '2008-10-16', NULL, 10);
 
 INSERT INTO datesortie(paysDatesortie, forbiddenpaysDatesortie, dateSortie, idFilm)
 VALUES
