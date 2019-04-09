@@ -48,7 +48,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     FROM FILMS;
     ```
 
-1.  Quel film de Christopher Nolan a généré le plus de recettes et dans quel pays ?
+1.  Quel film de Christopher Nolan a généré le plus de recettes ?
 
      ```sql
      SELECT titreFilm
