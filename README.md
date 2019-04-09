@@ -116,7 +116,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Quelle est la moyenne d'âge des artistes ?
      ```sql
     SELECT AVG(DATEDIFF(year, naissanceArtiste, GETDATE())) as "Moyenne âge artistes"
-    FROM artistes
+    FROM artistes;
     ```
 
 1.  Quel est le film qui est resté le plus longtemps dans les salles, le nombre de semaine et le pays ?
