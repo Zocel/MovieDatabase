@@ -34,7 +34,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Sur tous les films sorties après les années 2010, quels est le budget moyen ?
 
      ```sql
-    SELECT ( SUM(f.budgetFilm) / COUNT(f.titreFilm) ) as "Budget Moyen Film année 2010"
+     SELECT FORMAT((SUM(f.budgetFilm) / COUNT(f.titreFilm)), 'C', 'en-us') as "Budget Moyen Film année 2010"
      FROM FILMS f
      INNER JOIN datesortie ds
      ON (f.idFilm = ds.idFilm)
@@ -44,14 +44,14 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Sur la totalité des films, quel est la durée moyenne d'un film ?
 
      ```sql
-    SELECT ( SUM(dureeFilm) / COUNT(titreFilm)) as "Durée moyenne film"
+    SELECT (SUM(dureeFilm) / COUNT(titreFilm)) as "Durée moyenne film"
     FROM FILMS;
     ```
 
 1.  Quel film de Christopher Nolan a généré le plus de recettes ?
 
      ```sql
-     SELECT titreFilm
+     SELECT f.titreFilm, FORMAT(b.recetteBoxoffice, 'C', 'en-us') AS "Recette"
      FROM FILMS f
      INNER JOIN artistes a
      ON (f.idFilm = a.idFilm)
@@ -59,12 +59,12 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
      ON f.idFilm = b.idFilm
      WHERE UPPER(a.nomArtiste) = 'NOLAN'
      AND b.recetteBoxoffice = (SELECT MAX(recetteboxoffice)
-                                     FROM FILMS f
-                                     INNER JOIN boxoffice b
-                                     ON f.idFilm = b.idFilm
-                                     INNER JOIN artistes a
-                                     ON f.idFilm = a.idFilm
-						       WHERE UPPER(a.nomArtiste) = 'NOLAN');
+                              FROM FILMS f
+                              INNER JOIN boxoffice b
+                              ON f.idFilm = b.idFilm
+                              INNER JOIN artistes a
+                              ON f.idFilm = a.idFilm
+                              WHERE UPPER(a.nomArtiste) = 'NOLAN');
     ```
 
 1.  Quel film a connu la plus mauvaise critique de la presse sur Allociné ?
@@ -87,9 +87,9 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     INNER JOIN boxoffice b
     ON (f.idFilm = b.idFilm)
     WHERE f.budgetFilm - b.recetteBoxOffice = (SELECT MAX(budgetFilm - recetteBoxoffice)
-					       FROM FILMS f
-					       INNER JOIN boxoffice b
-					       ON (f.idFilm = b.idFilm))
+                                               FROM FILMS f
+                                               INNER JOIN boxoffice b
+                                               ON (f.idFilm = b.idFilm));
     ```
 
 1.  Sur tous les fims, quels acteurs ont participés au film avec le plus de recettes ?
@@ -119,14 +119,30 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     FROM artistes
     ```
 
-1.  Ceci est un test de question
+1.  Quel est le film qui est resté le plus longtemps dans les salles, le nombre de semaine et le pays ?
 
      ```sql
-    INSERT INTO
+     SELECT f.titreFilm, b.nombresemainesBoxoffice, b.paysBoxoffice
+     FROM films f
+     INNER JOIN boxoffice b
+     ON f.idFilm = b.idFilm
+     WHERE b.nombresemainesBoxoffice = (SELECT MAX(nombresemainesboxoffice)
+                                        FROM boxoffice);
     ```
 
-1.  Ceci est un test de question
+1.  Afficher les noms des films avec le nom complet du héros ou son alias (s'il en a un) ainsi que son némésis
 
      ```sql
-    INSERT INTO
+     SELECT f.titreFilm,
+	CASE
+	     WHEN p.aliasPersonnage IS NOT NULL THEN p.aliasPersonnage
+          WHEN p.nomPersonnage IS NULL THEN p.prenomPersonnage
+          WHEN p.prenomPersonnage IS NOT NULL THEN p.nomPersonnage
+	     ELSE CONCAT(nomPersonnage, ' ', prenomPersonnage)
+	     END as "Héro",
+	p.nemesisPersonnage
+     FROM films f
+     INNER JOIN personnages p
+     ON f.idFilm = p.idFilm
+     WHERE p.nemesisPersonnage IS NOT NULL;
     ```
