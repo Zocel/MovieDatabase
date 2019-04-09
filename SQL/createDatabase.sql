@@ -1,4 +1,15 @@
-﻿CREATE TABLE categoriedistinctions
+/* Création de la DATABASE 'FILMS' avec vérification qu'elle existe déjà */
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'MOVIES')
+DROP DATABASE [MOVIES]
+GO
+CREATE DATABASE [MOVIES]
+GO
+use [MOVIES]
+GO
+
+/* Création de la TABLE `catégoriedistinctions` */
+
+CREATE TABLE categoriedistinctions
 (
 	idCategorie INT IDENTITY(1,1) PRIMARY KEY,
 	nomCategorie VARCHAR(50),
