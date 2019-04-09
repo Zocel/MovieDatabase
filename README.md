@@ -74,49 +74,49 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     FROM FILMS f
     INNER JOIN critique c
     ON f.idFilm = c.idFilm
-    WHERE c.notepresseCritique = (SELECT MIN(notepresseCritique) FROM critique WHERE UPPER(nomCritique) = 'ALLOCINÉ');
+    WHERE c.notepresseCritique = (SELECT MIN(notepresseCritique) 
+    				  FROM critique 
+				  WHERE UPPER(nomCritique) = 'ALLOCINÉ');
     ```
 
-1.  Quel film a eu le meilleur rendement financier ? (plus petit budget mais gros gains au box-office)
+1.  Quel film a eu le meilleur rendement financier (à gagné plus que ce qu'il n'a coûté) ?
 
      ```sql
-    SELECT film
-    FROM MOVIES m
+    SELECT f.titreFilm
+    FROM FILMS f
     INNER JOIN boxoffice b
-    ON (m.idFilm = b.idFilm)
-    WHERE MIN(m.budgetFilm) and MAX(b.recetteBoxoffice);
+    ON (f.idFilm = b.idFilm)
+    WHERE f.budgetFilm - b.recetteBoxOffice = (SELECT MAX(budgetFilm - recetteBoxoffice)
+					       FROM FILMS f
+					       INNER JOIN boxoffice b
+					       ON (f.idFilm = b.idFilm))
     ```
 
-1.  Sur tous les fims quel acteur ressort avec le plus de récompenses ou de nominations par films
+1.  Sur tous les fims, quels acteurs ont participés au film avec le plus de recettes ?
 
      ```sql
-    SELECT p.personnages,
-    FROM MOVIES m
-    INNER JOIN personnages p
-    ON (m.idFilm = p.idFilm)
-    INNER JOIN distinctions d
-    ON (p.idDistinction = d.idDistinction)
-    WHERE SUM()
+    SELECT CONCAT(a.nomArtiste, ' ' , a.prenomArtiste) as "Acteurs", a.professionArtiste
+    FROM FILMS f
+    INNER JOIN artistes a
+    ON f.idFilm = a.idFilm
+    INNER JOIN boxoffice b
+    ON f.idFilm = b.idFilm
+    WHERE b.recetteBoxOffice = (SELECT max(recetteBoxoffice)
+				FROM boxoffice)
+    AND LOWER(a.professionArtiste) = 'Acteur';
+    ```
+1.  Afficher le nom et le prénom des artistes décédés avec leurs dates de naissance, de decès ainsi que leur âge quand ils sont morts
+
+     ```sql
+    SELECT nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, DATEDIFF(year, naissanceArtiste, mortArtiste) AS "Àge de l'artiste à sa mort"
+    FROM artistes 
+    WHERE mortArtiste IS NOT NULL;
     ```
 
-1.  Quel acteur principal a permit à un film de générer le plus d'argent lors d'un box-office ?
-
+1.  Quelle est la moyenne d'âge des artistes ?
      ```sql
-    SELECT p.personnages
-    FROM MOVIES m
-    INNER JOIN personnages p
-    ON (m.idFilm = p.idFilm)
-    WHERE 
-    ```
-
-1.  Quel film a reçu le plus de nominations ? (classé par ordre croissant)
-
-     ```sql
-    SELECT film
-    FROM MOVIES m
-    INNER JOIN distinctions d
-    ON (m.idFilm = d.idFilm)
-    WHERE MAX(d.distinctions);
+    SELECT AVG(DATEDIFF(year, naissanceArtiste, GETDATE())) as "Moyenne âge artistes"
+    FROM artistes
     ```
 
 1.  Ceci est un test de question
@@ -125,7 +125,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     INSERT INTO
     ```
 
-1.  Quelle société de production a employé l'acteur dont le film a généré le plus de recette, le plus de critique positive et qui a été nominé au moins une fois avec une date de sortie en salle > 2006 (modifiable)
+1.  Ceci est un test de question
 
      ```sql
     INSERT INTO
