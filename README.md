@@ -70,7 +70,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Quel film a connu la plus mauvaise critique de la presse sur Allociné ?
 
      ```sql
-    SELECT titreFilm
+    SELECT f.titreFilm
     FROM FILMS f
     INNER JOIN critique c
     ON f.idFilm = c.idFilm
