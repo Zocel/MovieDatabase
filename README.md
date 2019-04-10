@@ -95,7 +95,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Sur tous les fims, quels acteurs ont participés au film avec le plus de recettes ?
 
      ```sql
-    SELECT CONCAT(a.nomArtiste, ' ' , a.prenomArtiste) as "Acteurs", a.professionArtiste
+    SELECT CONCAT(a.nomArtiste, ' ' , a.prenomArtiste) as "Acteurs"
     FROM FILMS f
     INNER JOIN artistes a
     ON f.idFilm = a.idFilm
@@ -108,7 +108,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Afficher le nom et le prénom des artistes décédés avec leurs dates de naissance, de decès ainsi que leur âge quand ils sont morts
 
      ```sql
-    SELECT nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, DATEDIFF(year, naissanceArtiste, mortArtiste) AS "Àge de l'artiste à sa mort"
+    SELECT nomArtiste, prenomArtiste, naissanceArtiste, mortArtiste, DATEDIFF(year, naissanceArtiste, mortArtiste) AS "Âge de l'artiste à sa mort"
     FROM artistes 
     WHERE mortArtiste IS NOT NULL;
     ```
@@ -133,16 +133,16 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
 1.  Afficher les noms des films avec le nom complet du héros ou son alias (s'il en a un) ainsi que son némésis
 
      ```sql
-     SELECT f.titreFilm,
+	SELECT f.titreFilm,
 	CASE
-	     WHEN p.aliasPersonnage IS NOT NULL THEN p.aliasPersonnage
-          WHEN p.nomPersonnage IS NULL THEN p.prenomPersonnage
-          WHEN p.prenomPersonnage IS NOT NULL THEN p.nomPersonnage
-	     ELSE CONCAT(nomPersonnage, ' ', prenomPersonnage)
-	     END as "Héro",
+	    WHEN p.aliasPersonnage IS NOT NULL THEN p.aliasPersonnage
+	     WHEN p.nomPersonnage IS NULL THEN p.prenomPersonnage
+	     WHEN p.prenomPersonnage IS NULL THEN p.nomPersonnage
+	    ELSE CONCAT(nomPersonnage, ' ', prenomPersonnage)
+	    END as "Héro",
 	p.nemesisPersonnage
-     FROM films f
-     INNER JOIN personnages p
-     ON f.idFilm = p.idFilm
-     WHERE p.nemesisPersonnage IS NOT NULL;
+	FROM films f
+	INNER JOIN personnages p
+	ON f.idFilm = p.idFilm
+	WHERE p.nemesisPersonnage IS NOT NULL;
     ```
