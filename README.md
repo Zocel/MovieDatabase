@@ -86,10 +86,11 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
     FROM FILMS f
     INNER JOIN boxoffice b
     ON (f.idFilm = b.idFilm)
-    WHERE f.budgetFilm - b.recetteBoxOffice = (SELECT MAX(budgetFilm - recetteBoxoffice)
-                                               FROM FILMS f
-                                               INNER JOIN boxoffice b
-                                               ON (f.idFilm = b.idFilm));
+    WHERE (b.recetteBoxoffice - f.budgetFilm) = (SELECT MAX(recetteBoxoffice - budgetFilm)
+                                            FROM FILMS f
+                                            INNER JOIN boxoffice b
+                                            ON (f.idFilm = b.idFilm)
+                                            WHERE lower(b.paysBoxoffice) = 'worldwide');
     ```
 
 1.  Sur tous les fims, quels acteurs ont participés au film avec le plus de recettes ?
