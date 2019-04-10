@@ -135,7 +135,7 @@ Le **SQL** (Structured Query Language) est un langage informatique normalisé se
      ```sql
 	SELECT f.titreFilm,
 	CASE
-	    WHEN p.aliasPersonnage IS NULL THEN p.aliasPersonnage
+	    WHEN p.aliasPersonnage IS NOT NULL THEN p.aliasPersonnage
 	     WHEN p.nomPersonnage IS NULL THEN p.prenomPersonnage
 	     WHEN p.prenomPersonnage IS NULL THEN p.nomPersonnage
 	    ELSE CONCAT(nomPersonnage, ' ', prenomPersonnage)
